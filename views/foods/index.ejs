@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pantry</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Item</h1>
+    <h1>All Foods</h1>
+    <div>
+      <% if (pantryEl.length > 0) { %>
+        <ul>
+          <% pantryEl.forEach(food => { %>
+            <li>
+              <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+
+
+                <%= food.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p>There are no items in this pantry.</p>
+      <% } %>
+    </div>
+    <a href="/users/<%= user._id %>/foods/new">Add a New Item</a>
+  </body>
+</html>
